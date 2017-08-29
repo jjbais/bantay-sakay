@@ -1,0 +1,41 @@
+<ion-content padding>
+  <img width="100%" src="assets/img/title.png" />
+  <ion-segment [(ngModel)]="auth">
+    <ion-segment-button value="signIn">
+      Sign In
+    </ion-segment-button>
+    <ion-segment-button value="register">
+      Register
+    </ion-segment-button>
+  </ion-segment>
+  <div [ngSwitch]="auth">
+    <ion-list *ngSwitchCase="'signIn'">
+      <form (ngSubmit)="signIn()">
+        <ion-item>
+          <ion-label>Email</ion-label>
+          <ion-input type="email" [(ngModel)]="user.email" name="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Password</ion-label>
+          <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+        </ion-item>
+        <button ion-button type="submit" block>Sign In</button>
+      </form>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'register'">
+      <form (ngSubmit)="register()">
+        <ion-item>
+          <ion-label>Email</ion-label>
+          <ion-input type="email" [(ngModel)]="user.email" name="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Password</ion-label>
+          <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+        </ion-item>
+        <button ion-button type="submit" block>Register</button>
+      </form>
+    </ion-list>
+  </div>
+
+</ion-content>

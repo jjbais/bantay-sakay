@@ -1,0 +1,38 @@
+<!--
+  Generated template for the SearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>search</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <img style="margin-left: 35%" width="30%" text-center src="assets/img/logo.png" />
+  <form (ngSubmit)="search()">
+    <ion-item>
+      <ion-input text-center text-uppercase type="text" placeholder="Plate Number" [(ngModel)]="driver.plateNumber" name="plateNumber"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input text-center text-uppercase type="text" placeholder="Vehicle Type" [(ngModel)]="driver.type" name="type" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input text-center text-uppercase type="text" placeholder="Registered Owner" [(ngModel)]="driver.driverName" name="driverName" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input text-center text-uppercase type="text" placeholder="Franchise Number" [(ngModel)]="driver.licenseNumber" name="licenseNumber" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input text-center text-uppercase type="text" placeholder="Route" [(ngModel)]="driver.route" name="route" readonly></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Search</button>
+  </form>
+  <button ion-button *ngIf="isDriverAvailable" block color="danger" (click)="report()">Report</button>
+
+</ion-content>

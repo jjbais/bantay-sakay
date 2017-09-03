@@ -95,7 +95,7 @@ export class FirebaseProvider {
     });
   }
 
-  pushReport(uId: string, plateNumber: string, misbehaviour: string, imageUrl: string = '') {
+  pushReport(uId: string, plateNumber: string, misbehaviour: string, imageUrl: string = '', other: string = '') {
     this.splashScreen.show();
     let date = new Date().toISOString();
     let ref = 'images/' + date + '.jpg';
@@ -105,6 +105,7 @@ export class FirebaseProvider {
         plateNumber: plateNumber,
         misbehaviour: misbehaviour,
         image: ref,
+        other: other,
         timestamp: date
       }).then(() => {
         this.splashScreen.hide();

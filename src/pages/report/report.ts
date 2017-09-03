@@ -9,6 +9,7 @@ interface Report {
   plateNumber: string;
   misbehaviour: string;
   imageUrl: string;
+  other: string;
 }
 
 @IonicPage()
@@ -18,7 +19,7 @@ interface Report {
 })
 export class ReportPage {
   database: any;
-  report: Report = { plateNumber: '', misbehaviour: '', imageUrl: '' };
+  report: Report = { plateNumber: '', misbehaviour: '', imageUrl: '', other: '' };
   buttonText: string;
   buttonColor: string;
 
@@ -41,7 +42,7 @@ export class ReportPage {
   pushData() {
     let user: fb.User = fb.auth().currentUser;
     if (this.report.misbehaviour !== '') {
-      this.firebase.pushReport(user.uid, this.report.plateNumber, this.report.misbehaviour, this.report.imageUrl);
+      this.firebase.pushReport(user.uid, this.report.plateNumber, this.report.misbehaviour, this.report.imageUrl, this.report.other);
       this.navCtrl.popToRoot();
     } else {
       this.toast.create({

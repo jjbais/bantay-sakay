@@ -34,6 +34,9 @@
         <ion-option value="10">Others</ion-option>
       </ion-select>
     </ion-item>
+    <ion-item *ngIf="report.misbehaviour == 10">
+      <ion-input text-center type="text" placeholder="Please Specify.." [(ngModel)]="report.other" name="other"></ion-input>
+    </ion-item>
     <div ion-button block [color]="buttonColor" (click)="capture()">
       {{buttonText}}
     </div>
